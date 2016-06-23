@@ -11,6 +11,7 @@ import os
 import sys
 
 
+
 def usage():
     """
         Usage of the process
@@ -32,6 +33,9 @@ def main():
         return False
 
     directory = sys.argv[1]
+    if not os.path.exists(directory):
+        print "The following path does not exist."
+        return False
 
     for root_dir, subfolders, files in os.walk(directory):
         if len(files) > 0:
